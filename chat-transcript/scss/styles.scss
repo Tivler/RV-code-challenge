@@ -1,0 +1,260 @@
+/* Font import from google fonts (Roboto Condensed and Roboto) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@400;700&display=swap');
+
+/* Variables */
+$sent-color: #ff5d5d;
+$from-color: #5da2ff;
+$box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
+
+/* Setting default font for entire webpage and setting background-color */
+body {
+    background-color: #eee;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Chatbox section */
+.chatBox {
+    width: 800px;
+    background-color: #fff;
+    margin: 50px auto;
+    box-shadow: $box-shadow;
+
+    /* Responsive media queries */
+    @media only screen and (max-width: 830px) {
+        width: 600px;
+    }
+
+    @media only screen and (max-width: 640px) {
+        width: 450px;
+    }
+
+    @media only screen and (max-width: 470px) {
+        width: 300px;
+    }
+
+    @media only screen and (max-width: 320px) {
+        width: 230px;
+    }
+}
+
+/* Header section with title and date */
+.header {
+    margin: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 98px;
+    border-bottom: 1px solid #eee;
+
+    /* Responsive media queries */
+    @media only screen and (max-width: 640px) {
+        margin: 0 35px;
+    }
+
+    @media only screen and (max-width: 320px) {
+       margin: 0 20px;
+    }
+
+    &__title {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 3.87px;
+    }
+
+    &__date {
+        color: #9a9a9a;
+        font-size: 18px;
+
+        /* Responsive media queries */
+        @media only screen and (max-width: 640px) {
+            display: none;
+        }
+    }
+}
+
+
+/* Chat section template */
+.chat {
+    padding-bottom: 50px;
+
+    &__container {
+        margin: 30px 50px;
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        transform-origin: 0 100%;
+        transform: scale(0);
+        overflow: hidden;
+        animation: message 0.35s ease-out 0s forwards;
+        animation-delay: var(--delay);
+
+        /* Responsive media queries */
+        @media only screen and (max-width: 640px) {
+            margin: 30px 35px;
+        }
+
+        @media only screen and (max-width: 320px) {
+            margin: 30px 20px;
+        }
+
+        /* From modifier to reverse alignment of the chat container */
+        &--from {
+            flex-direction: row-reverse;
+            transform-origin: 100% 0;
+        }
+    }
+
+    &__icon {
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+        margin: 11px 0 0 0;
+
+        /* Responsive media queries */
+        @media only screen and (max-width: 470px) {
+            display: none;
+        }
+    }
+
+    &__userMessage {
+        background-color: #eee;
+        padding: 25px 25px 20px 25px;
+        width: 79%;
+        position: relative;
+
+        /* Responsive media queries */
+        @media only screen and (max-width: 830px) {
+            width: 71%;
+        }
+
+        @media only screen and (max-width: 640px) {
+            padding: 20px 20px 15px 20px;
+            width: 65%;
+        }
+
+        @media only screen and (max-width: 470px) {
+            width: 100%;
+        }
+
+        &__textbox::after {
+            position: absolute;
+            content: '';
+            border: 10px solid transparent;
+        }
+
+        &:focus {
+            background-color: #fff;
+            box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
+            transition: .4s ease-in-out;
+            outline: none;
+        }
+
+        &__message {
+            font-size: 16px;
+            line-height: 24px;
+
+            /* Responsive media queries */
+            @media only screen and (max-width: 640px) {
+                font-size: 12px;
+                line-height: 18px;
+            }
+
+            @media only screen and (max-width: 320px) {
+                font-size: 10px;
+                line-height: 16px;
+            }
+        }
+    }
+
+    &__username {
+        display: flex;
+        margin: 20px 0 0 0;
+
+        &__name {
+            font-size: 18px;
+            font-weight: bold;
+
+            /* Responsive media queries */
+            @media only screen and (max-width: 640px) {
+                font-size: 15px;
+            }
+
+            @media only screen and (max-width: 470px) {
+                font-size: 13px;
+            }
+
+            @media only screen and (max-width: 320px) {
+                font-size: 11px;
+            }
+
+            /* Sent modifier to set username font color */
+            &--sent {
+                color: $sent-color;
+            }
+
+            /* From modifier to set username font color */
+            &--from {
+                color: $from-color;
+            }
+        }
+    }
+
+    &__timestamp {
+        margin-left: 30px;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 0.01pt;
+        display: flex;
+        align-items: center;
+
+        /* Responsive media queries */
+        @media only screen and (max-width: 640px) {
+           font-size: 10px;
+        }
+
+        @media only screen and (max-width: 320px) {
+           margin-left: 10px;
+        }
+    }
+
+}
+
+/* Clock Icon styles for timestamp */
+.clock-icon {
+    height: 12px;
+    width: 12px;
+    color: #333;
+    margin-right: 3px;
+
+    /* Responsive media queries */
+    @media only screen and (max-width: 640px) {
+        height: 10px;
+        width: 10px;
+     }
+}
+
+/* Speech bubble tail */
+/* ATTACH TRANSPARENT BORDERS AFTER */
+.left::after {
+    border-right-color: #eee;
+    left: -20px;
+    top: 22px;
+}
+
+.right::after {
+    border-left-color: #eee;
+    right: -20px;
+    top: 22px;
+}
+
+/* Keyframe for message animation */
+@keyframes message {
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        overflow: visible;
+    }
+} 

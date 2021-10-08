@@ -1,0 +1,335 @@
+/* Font import from google fonts (Roboto Condensed and Roboto) */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@400;700&display=swap");
+/* Variables */
+/* Setting default font for entire webpage and setting background-color */
+body {
+  background-color: #eee;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Chatbox section */
+.chatBox {
+  width: 800px;
+  background-color: #fff;
+  margin: 50px auto;
+  -webkit-box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
+          box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
+  /* Responsive media queries */
+}
+
+@media only screen and (max-width: 830px) {
+  .chatBox {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .chatBox {
+    width: 450px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .chatBox {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .chatBox {
+    width: 230px;
+  }
+}
+
+/* Header section with title and date */
+.header {
+  margin: 0 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 98px;
+  border-bottom: 1px solid #eee;
+  /* Responsive media queries */
+}
+
+@media only screen and (max-width: 640px) {
+  .header {
+    margin: 0 35px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .header {
+    margin: 0 20px;
+  }
+}
+
+.header__title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 3.87px;
+}
+
+.header__date {
+  color: #9a9a9a;
+  font-size: 18px;
+  /* Responsive media queries */
+}
+
+@media only screen and (max-width: 640px) {
+  .header__date {
+    display: none;
+  }
+}
+
+/* Chat section template */
+.chat {
+  padding-bottom: 50px;
+}
+
+.chat__container {
+  margin: 30px 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  overflow: hidden;
+  -webkit-animation: message 0.35s ease-out 0s forwards;
+          animation: message 0.35s ease-out 0s forwards;
+  -webkit-animation-delay: var(--delay);
+          animation-delay: var(--delay);
+  /* Responsive media queries */
+  /* From modifier to reverse alignment of the chat container */
+}
+
+@media only screen and (max-width: 640px) {
+  .chat__container {
+    margin: 30px 35px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .chat__container {
+    margin: 30px 20px;
+  }
+}
+
+.chat__container--from {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+}
+
+.chat__icon {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  margin: 11px 0 0 0;
+  /* Responsive media queries */
+}
+
+@media only screen and (max-width: 470px) {
+  .chat__icon {
+    display: none;
+  }
+}
+
+.chat__userMessage {
+  background-color: #eee;
+  padding: 25px 25px 20px 25px;
+  width: 79%;
+  position: relative;
+  /* Responsive media queries */
+}
+
+@media only screen and (max-width: 830px) {
+  .chat__userMessage {
+    width: 71%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .chat__userMessage {
+    padding: 20px 20px 15px 20px;
+    width: 65%;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .chat__userMessage {
+    width: 100%;
+  }
+}
+
+.chat__userMessage__textbox::after {
+  position: absolute;
+  content: '';
+  border: 10px solid transparent;
+}
+
+.chat__userMessage:focus {
+  background-color: #fff;
+  -webkit-box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
+          box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+  outline: none;
+}
+
+.chat__userMessage__message {
+  font-size: 16px;
+  line-height: 24px;
+  /* Responsive media queries */
+}
+
+@media only screen and (max-width: 640px) {
+  .chat__userMessage__message {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .chat__userMessage__message {
+    font-size: 10px;
+    line-height: 16px;
+  }
+}
+
+.chat__username {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 0 0 0;
+}
+
+.chat__username__name {
+  font-size: 18px;
+  font-weight: bold;
+  /* Responsive media queries */
+  /* Sent modifier to set username font color */
+  /* From modifier to set username font color */
+}
+
+@media only screen and (max-width: 640px) {
+  .chat__username__name {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .chat__username__name {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .chat__username__name {
+    font-size: 11px;
+  }
+}
+
+.chat__username__name--sent {
+  color: #ff5d5d;
+}
+
+.chat__username__name--from {
+  color: #5da2ff;
+}
+
+.chat__timestamp {
+  margin-left: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 0.01pt;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* Responsive media queries */
+}
+
+@media only screen and (max-width: 640px) {
+  .chat__timestamp {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .chat__timestamp {
+    margin-left: 10px;
+  }
+}
+
+/* Clock Icon styles for timestamp */
+.clock-icon {
+  height: 12px;
+  width: 12px;
+  color: #333;
+  margin-right: 3px;
+  /* Responsive media queries */
+}
+
+@media only screen and (max-width: 640px) {
+  .clock-icon {
+    height: 10px;
+    width: 10px;
+  }
+}
+
+/* Speech bubble tail */
+/* ATTACH TRANSPARENT BORDERS AFTER */
+.left::after {
+  border-right-color: #eee;
+  left: -20px;
+  top: 22px;
+}
+
+.right::after {
+  border-left-color: #eee;
+  right: -20px;
+  top: 22px;
+}
+
+/* Keyframe for message animation */
+@-webkit-keyframes message {
+  80% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    overflow: visible;
+  }
+}
+@keyframes message {
+  80% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    overflow: visible;
+  }
+}
