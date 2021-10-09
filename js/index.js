@@ -37,8 +37,12 @@ let getChatData = async () => {
                 let userMessageTime = document.createElement('p');
                 let clockIcon = document.createElement('img');
 
+                // Creates element for textbox triangle
+                let arrow = document.createElement('div');
+
                 // Statically assigning classes to elements that are consistent for both types of chat.
                 userIcon.className = 'chat__icon';
+                userMessage.classList.add('chat__userMessage', 'chat__userMessage__textbox');
                 message.className = 'chat__userMessage__message';
                 username.className = 'chat__username';
                 timestamp.className = 'chat__timestamp';
@@ -46,26 +50,37 @@ let getChatData = async () => {
                 clockIcon.className = 'clock-icon';
 
                 // Checking if the index value is even
+                let evenIndex = index % 2 == 0;
                 // and setting classes according to that condition for the two different types of chat
-                if(index % 2 == 0) {
+                if(evenIndex) {
                     chat.classList.add('sent' , 'chat');
-                    userMessage.classList.add('chat__userMessage', 'chat__userMessage__textbox', 'left');
                     name.classList.add('sent__user', 'chat__username__name');
+                    arrow.classList.add('left');
                 } else {
                     chat.classList.add('from' , 'chat');
-                    userMessage.classList.add('chat__userMessage', 'chat__userMessage__textbox', 'right');
                     name.classList.add('from__user', 'chat__username__name');
+                    arrow.classList.add('right');
                 }
                 
                 // Adding the value for the delay variable using the messages index
                 chat.style = `--delay: ${index}s`;
 
-                // Adding tabIndex to the userMessage and click event to handle focus
+                // Adding tabIndex to the userMessage and handle focusin and focus out for userMessage
                 userMessage.tabIndex = 0;
-                userMessage.addEventListener('click', () => {
-                    userMessage.focus();
+                userMessage.addEventListener('focusin', () => {
+                    userMessage.classList.add('focus');
+                    if(evenIndex) {
+                        arrow.classList.add('focus--left');
+                    } else {
+                        arrow.classList.add('focus--right');
+                    }
                 });
 
+                userMessage.addEventListener('focusout', () => {
+                    userMessage.classList.remove('focus');
+                    arrow.classList.remove('focus--left', 'focus--right');
+                })
+            
                 // Setting the source attribute for images, icons 
                 // and the formatted time and content for each message based on it's index value.
                 userIcon.src = data[index].image;
@@ -82,7 +97,7 @@ let getChatData = async () => {
                 // Appending all created elements to the DOM to be displayed in webpage.
                 chatbox[0].appendChild(chat)
                 chat.append(userIcon, userMessage);
-                userMessage.append(message, username);
+                userMessage.append(message, username, arrow);
                 username.append(name, timestamp);
                 timestamp.append(clockIcon, userMessageTime)
             }

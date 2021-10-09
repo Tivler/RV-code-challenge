@@ -15,11 +15,11 @@ body {
   margin: 50px auto;
   -webkit-box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
           box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
-  /* Responsive media queries */
 }
 
 @media only screen and (max-width: 830px) {
   .chat__transcript {
+    /* Responsive media queries */
     width: 600px;
   }
 }
@@ -55,7 +55,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   height: 98px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px solid #eee;
   /* Responsive media queries */
 }
 
@@ -92,7 +92,7 @@ body {
 
 /* Chat section template */
 .chatbox {
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   height: 646px;
 }
 
@@ -121,11 +121,11 @@ body {
           animation: message 0.35s ease-out 0s forwards;
   -webkit-animation-delay: var(--delay);
           animation-delay: var(--delay);
-  /* Responsive media queries */
 }
 
 @media only screen and (max-width: 640px) {
   .chatbox .chat {
+    /* Responsive media queries */
     margin: 30px 35px;
   }
 }
@@ -141,11 +141,11 @@ body {
   width: 50px;
   border-radius: 100%;
   margin: 11px 0 0 0;
-  /* Responsive media queries */
 }
 
 @media only screen and (max-width: 470px) {
   .chatbox .chat__icon {
+    /* Responsive media queries */
     display: none;
   }
 }
@@ -155,11 +155,11 @@ body {
   padding: 25px 25px 20px 25px;
   width: 79%;
   position: relative;
-  /* Responsive media queries */
 }
 
 @media only screen and (max-width: 830px) {
   .chatbox .chat__userMessage {
+    /* Responsive media queries */
     width: 71%;
   }
 }
@@ -177,12 +177,6 @@ body {
   }
 }
 
-.chatbox .chat__userMessage__textbox::after {
-  position: absolute;
-  content: '';
-  border: 10px solid transparent;
-}
-
 .chatbox .chat__userMessage:focus {
   background-color: #fff;
   -webkit-box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
@@ -193,13 +187,13 @@ body {
 }
 
 .chatbox .chat__userMessage__message {
-  font-size: 16px;
+  font-size: 16.6px;
   line-height: 24px;
-  /* Responsive media queries */
 }
 
 @media only screen and (max-width: 640px) {
   .chatbox .chat__userMessage__message {
+    /* Responsive media queries */
     font-size: 12px;
     line-height: 18px;
   }
@@ -220,14 +214,14 @@ body {
 }
 
 .chatbox .chat__username__name {
-  font-size: 18px;
+  font-size: 18.5px;
   font-weight: bold;
   color: #ff5d5d;
-  /* Responsive media queries */
 }
 
 @media only screen and (max-width: 640px) {
   .chatbox .chat__username__name {
+    /* Responsive media queries */
     font-size: 15px;
   }
 }
@@ -255,11 +249,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  /* Responsive media queries */
 }
 
 @media only screen and (max-width: 640px) {
   .chatbox .chat__timestamp {
+    /* Responsive media queries */
     font-size: 10px;
   }
 }
@@ -270,6 +264,7 @@ body {
   }
 }
 
+/* FROM chat modifier class to handle the change in chat */
 .from {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
@@ -281,19 +276,20 @@ body {
   color: #5da2ff !important;
 }
 
+/* Hidden classes added to hide chatbox error message */
 .hidden {
   display: none;
 }
 
+/* Height classes added to set height to auto instead of static pixel value */
 .height {
   height: auto;
 }
 
 /* Clock Icon styles for timestamp */
 .clock-icon {
-  height: 12px;
-  width: 12px;
-  color: #333;
+  height: 11px;
+  width: 11px;
   margin-right: 3px;
   /* Responsive media queries */
 }
@@ -305,18 +301,39 @@ body {
   }
 }
 
-/* Speech bubble tail */
-/* ATTACH TRANSPARENT BORDERS AFTER */
-.left::after {
-  border-right-color: #eee;
-  left: -20px;
-  top: 22px;
+/* Styles for setting the arrow for each userMessage to give textbox effect */
+.left {
+  position: absolute;
+  left: -7px;
+  top: 27px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid #eee;
 }
 
-.right::after {
-  border-left-color: #eee;
-  right: -20px;
-  top: 22px;
+.right {
+  position: absolute;
+  right: -7px;
+  top: 27px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid #eee;
+}
+
+.focus--left {
+  border-right-color: #fff;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+}
+
+.focus--right {
+  border-left-color: #fff;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
 }
 
 /* Keyframe for message animation */
