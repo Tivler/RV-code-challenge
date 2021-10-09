@@ -13,7 +13,8 @@ body {
 }
 
 /* Chatbox section */
-.chatBox {
+.chat__transcript {
+    height: 795px;
     width: 800px;
     background-color: #fff;
     margin: 50px auto;
@@ -75,10 +76,18 @@ body {
 
 
 /* Chat section template */
-.chat {
+.chatbox {
     padding-bottom: 50px;
+    height: 646px;
 
-    &__container {
+    &__error {
+        color: #9a9a9a;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 50px
+    }
+
+    .chat {
         margin: 30px 50px;
         display: flex;
         position: relative;
@@ -98,126 +107,130 @@ body {
             margin: 30px 20px;
         }
 
-        /* From modifier to reverse alignment of the chat container */
-        &--from {
-            flex-direction: row-reverse;
-            transform-origin: 100% 0;
-        }
-    }
-
-    &__icon {
-        height: 50px;
-        width: 50px;
-        border-radius: 100%;
-        margin: 11px 0 0 0;
-
-        /* Responsive media queries */
-        @media only screen and (max-width: 470px) {
-            display: none;
-        }
-    }
-
-    &__userMessage {
-        background-color: #eee;
-        padding: 25px 25px 20px 25px;
-        width: 79%;
-        position: relative;
-
-        /* Responsive media queries */
-        @media only screen and (max-width: 830px) {
-            width: 71%;
-        }
-
-        @media only screen and (max-width: 640px) {
-            padding: 20px 20px 15px 20px;
-            width: 65%;
-        }
-
-        @media only screen and (max-width: 470px) {
-            width: 100%;
-        }
-
-        &__textbox::after {
-            position: absolute;
-            content: '';
-            border: 10px solid transparent;
-        }
-
-        &:focus {
-            background-color: #fff;
-            box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
-            transition: .4s ease-in-out;
-            outline: none;
-        }
-
-        &__message {
-            font-size: 16px;
-            line-height: 24px;
-
+        &__icon {
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            margin: 11px 0 0 0;
+    
             /* Responsive media queries */
-            @media only screen and (max-width: 640px) {
-                font-size: 12px;
-                line-height: 18px;
-            }
-
-            @media only screen and (max-width: 320px) {
-                font-size: 10px;
-                line-height: 16px;
-            }
-        }
-    }
-
-    &__username {
-        display: flex;
-        margin: 20px 0 0 0;
-
-        &__name {
-            font-size: 18px;
-            font-weight: bold;
-
-            /* Responsive media queries */
-            @media only screen and (max-width: 640px) {
-                font-size: 15px;
-            }
-
             @media only screen and (max-width: 470px) {
-                font-size: 13px;
+                display: none;
             }
-
-            @media only screen and (max-width: 320px) {
-                font-size: 11px;
+        }
+    
+        &__userMessage {
+            background-color: #eee;
+            padding: 25px 25px 20px 25px;
+            width: 79%;
+            position: relative;
+    
+            /* Responsive media queries */
+            @media only screen and (max-width: 830px) {
+                width: 71%;
             }
-
-            /* Sent modifier to set username font color */
-            &--sent {
+    
+            @media only screen and (max-width: 640px) {
+                padding: 20px 20px 15px 20px;
+                width: 65%;
+            }
+    
+            @media only screen and (max-width: 470px) {
+                width: 100%;
+            }
+    
+            &__textbox::after {
+                position: absolute;
+                content: '';
+                border: 10px solid transparent;
+            }
+    
+            &:focus {
+                background-color: #fff;
+                box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
+                transition: .4s ease-in-out;
+                outline: none;
+            }
+    
+            &__message {
+                font-size: 16px;
+                line-height: 24px;
+    
+                /* Responsive media queries */
+                @media only screen and (max-width: 640px) {
+                    font-size: 12px;
+                    line-height: 18px;
+                }
+    
+                @media only screen and (max-width: 320px) {
+                    font-size: 10px;
+                    line-height: 16px;
+                }
+            }
+        }
+    
+        &__username {
+            display: flex;
+            margin: 20px 0 0 0;
+    
+            &__name {
+                font-size: 18px;
+                font-weight: bold;
                 color: $sent-color;
+    
+                /* Responsive media queries */
+                @media only screen and (max-width: 640px) {
+                    font-size: 15px;
+                }
+    
+                @media only screen and (max-width: 470px) {
+                    font-size: 13px;
+                }
+    
+                @media only screen and (max-width: 320px) {
+                    font-size: 11px;
+                }
             }
-
-            /* From modifier to set username font color */
-            &--from {
-                color: $from-color;
+        }
+    
+        &__timestamp {
+            margin-left: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 0.01pt;
+            display: flex;
+            align-items: center;
+    
+            /* Responsive media queries */
+            @media only screen and (max-width: 640px) {
+               font-size: 10px;
+            }
+    
+            @media only screen and (max-width: 320px) {
+               margin-left: 10px;
             }
         }
     }
 
-    &__timestamp {
-        margin-left: 30px;
-        font-size: 12px;
-        font-weight: bold;
-        line-height: 0.01pt;
-        display: flex;
-        align-items: center;
+}
 
-        /* Responsive media queries */
-        @media only screen and (max-width: 640px) {
-           font-size: 10px;
-        }
+// FROM chat modifier class to handle the change in chat
+.from {
+    flex-direction: row-reverse;
 
-        @media only screen and (max-width: 320px) {
-           margin-left: 10px;
-        }
+    &__user {
+        color: $from-color !important;
     }
+}
 
+// Hidden classes added to hide chatbox error message
+.hidden {
+    display: none;
+}
+
+// Height classes added to set height to auto instead of static pixel value
+.height {
+    height: auto;
 }
 
 /* Clock Icon styles for timestamp */

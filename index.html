@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a Chat Transcript displays messages in a from/sent format. RV code challenge." />
     <title>Chat Transcript</title>
     <!-- CSS reset and external stylesheets -->
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./scss/styles.css">
 </head>
 <body>
-    <!-- Chatbox sectioned off into two sections header and chat -->
-    <section class="chatBox">
+    <!-- Chatbox divided into two sections header and chat -->
+    <!-- Default values that are updated upon successful API call -->
+    <section class="chat__transcript">
         <header class="header">
             <h1 class="header__title">Chat Transcript</h1>
             <p class="header__date">No Connection</p>
         </header>
 
-        <div class="chat"></div>
+        <section class="chatbox">
+            <p class="chatbox__error">No Messages Found</p>
+        </section>
     </section>
 
     <script src="./js/index.js"></script>

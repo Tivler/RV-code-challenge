@@ -8,7 +8,8 @@ body {
 }
 
 /* Chatbox section */
-.chatBox {
+.chat__transcript {
+  height: 795px;
   width: 800px;
   background-color: #fff;
   margin: 50px auto;
@@ -18,25 +19,25 @@ body {
 }
 
 @media only screen and (max-width: 830px) {
-  .chatBox {
+  .chat__transcript {
     width: 600px;
   }
 }
 
 @media only screen and (max-width: 640px) {
-  .chatBox {
+  .chat__transcript {
     width: 450px;
   }
 }
 
 @media only screen and (max-width: 470px) {
-  .chatBox {
+  .chat__transcript {
     width: 300px;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .chatBox {
+  .chat__transcript {
     width: 230px;
   }
 }
@@ -90,11 +91,19 @@ body {
 }
 
 /* Chat section template */
-.chat {
+.chatbox {
   padding-bottom: 50px;
+  height: 646px;
 }
 
-.chat__container {
+.chatbox__error {
+  color: #9a9a9a;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.chatbox .chat {
   margin: 30px 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -113,31 +122,21 @@ body {
   -webkit-animation-delay: var(--delay);
           animation-delay: var(--delay);
   /* Responsive media queries */
-  /* From modifier to reverse alignment of the chat container */
 }
 
 @media only screen and (max-width: 640px) {
-  .chat__container {
+  .chatbox .chat {
     margin: 30px 35px;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .chat__container {
+  .chatbox .chat {
     margin: 30px 20px;
   }
 }
 
-.chat__container--from {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -webkit-transform-origin: 100% 0;
-          transform-origin: 100% 0;
-}
-
-.chat__icon {
+.chatbox .chat__icon {
   height: 50px;
   width: 50px;
   border-radius: 100%;
@@ -146,12 +145,12 @@ body {
 }
 
 @media only screen and (max-width: 470px) {
-  .chat__icon {
+  .chatbox .chat__icon {
     display: none;
   }
 }
 
-.chat__userMessage {
+.chatbox .chat__userMessage {
   background-color: #eee;
   padding: 25px 25px 20px 25px;
   width: 79%;
@@ -160,31 +159,31 @@ body {
 }
 
 @media only screen and (max-width: 830px) {
-  .chat__userMessage {
+  .chatbox .chat__userMessage {
     width: 71%;
   }
 }
 
 @media only screen and (max-width: 640px) {
-  .chat__userMessage {
+  .chatbox .chat__userMessage {
     padding: 20px 20px 15px 20px;
     width: 65%;
   }
 }
 
 @media only screen and (max-width: 470px) {
-  .chat__userMessage {
+  .chatbox .chat__userMessage {
     width: 100%;
   }
 }
 
-.chat__userMessage__textbox::after {
+.chatbox .chat__userMessage__textbox::after {
   position: absolute;
   content: '';
   border: 10px solid transparent;
 }
 
-.chat__userMessage:focus {
+.chatbox .chat__userMessage:focus {
   background-color: #fff;
   -webkit-box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
           box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.13);
@@ -193,68 +192,59 @@ body {
   outline: none;
 }
 
-.chat__userMessage__message {
+.chatbox .chat__userMessage__message {
   font-size: 16px;
   line-height: 24px;
   /* Responsive media queries */
 }
 
 @media only screen and (max-width: 640px) {
-  .chat__userMessage__message {
+  .chatbox .chat__userMessage__message {
     font-size: 12px;
     line-height: 18px;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .chat__userMessage__message {
+  .chatbox .chat__userMessage__message {
     font-size: 10px;
     line-height: 16px;
   }
 }
 
-.chat__username {
+.chatbox .chat__username {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 20px 0 0 0;
 }
 
-.chat__username__name {
+.chatbox .chat__username__name {
   font-size: 18px;
   font-weight: bold;
+  color: #ff5d5d;
   /* Responsive media queries */
-  /* Sent modifier to set username font color */
-  /* From modifier to set username font color */
 }
 
 @media only screen and (max-width: 640px) {
-  .chat__username__name {
+  .chatbox .chat__username__name {
     font-size: 15px;
   }
 }
 
 @media only screen and (max-width: 470px) {
-  .chat__username__name {
+  .chatbox .chat__username__name {
     font-size: 13px;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .chat__username__name {
+  .chatbox .chat__username__name {
     font-size: 11px;
   }
 }
 
-.chat__username__name--sent {
-  color: #ff5d5d;
-}
-
-.chat__username__name--from {
-  color: #5da2ff;
-}
-
-.chat__timestamp {
+.chatbox .chat__timestamp {
   margin-left: 30px;
   font-size: 12px;
   font-weight: bold;
@@ -269,15 +259,34 @@ body {
 }
 
 @media only screen and (max-width: 640px) {
-  .chat__timestamp {
+  .chatbox .chat__timestamp {
     font-size: 10px;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .chat__timestamp {
+  .chatbox .chat__timestamp {
     margin-left: 10px;
   }
+}
+
+.from {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.from__user {
+  color: #5da2ff !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.height {
+  height: auto;
 }
 
 /* Clock Icon styles for timestamp */
