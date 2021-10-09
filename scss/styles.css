@@ -339,8 +339,8 @@ body {
 /* Keyframe for message animation */
 @-webkit-keyframes message {
   80% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   100% {
     -webkit-transform: scale(1);
@@ -350,8 +350,8 @@ body {
 }
 @keyframes message {
   80% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   100% {
     -webkit-transform: scale(1);
